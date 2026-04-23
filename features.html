@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BQ Wizard — Full feature list</title>
+  <meta name="description" content="Every feature in BQ Wizard: estimating library, PDF plan take-off, dim workings, 3D view, custom tool kits, cloud sync, and more." />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-light: #eff6ff;
+      --primary-dark: #2563eb;
+      --brand: #1e293b;
+      --brand-dark: #0f172a;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      color: #fff;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 22%;
+      clip-path: inset(2px round 20%);
+    }
+
+    .logo span {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .header-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      transition: color 0.15s;
+    }
+
+    .header-links a:hover { color: #fff; }
+
+    .header-links a.nav-pill {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .header-links a.nav-pill:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Hero */
+    .page-hero {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 72px;
+    }
+
+    .page-hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .page-hero p {
+      font-size: 18px;
+      max-width: 640px;
+      margin: 0 auto;
+      opacity: 0.88;
+      line-height: 1.6;
+    }
+
+    .page-hero .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .page-hero .back-link:hover { color: #fff; }
+
+    /* Layout */
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 64px 20px 96px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Sticky TOC */
+    .toc {
+      position: sticky;
+      top: 88px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      font-size: 14px;
+      max-height: calc(100vh - 108px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .toc ul {
+      list-style: none;
+    }
+
+    .toc li + li {
+      margin-top: 8px;
+    }
+
+    .toc a {
+      color: var(--text-muted);
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.15s;
+    }
+
+    .toc a:hover {
+      color: var(--primary);
+    }
+
+    /* Content */
+    .content h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin: 0 0 8px;
+      scroll-margin-top: 88px;
+    }
+
+    .content h2:not(:first-child) {
+      margin-top: 64px;
+      padding-top: 8px;
+    }
+
+    .content .section-sub {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .content p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .content ul {
+      list-style: none;
+      margin: 0 0 20px;
+    }
+
+    .content li {
+      padding: 6px 0 6px 28px;
+      position: relative;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .content li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 16px;
+      height: 16px;
+      background: var(--primary-light);
+      border-radius: 50%;
+    }
+
+    .content li::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 18px;
+      width: 6px;
+      height: 3px;
+      border-left: 2px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
+      transform: rotate(-45deg);
+    }
+
+    .content li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .bottom-cta {
+      margin-top: 80px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .bottom-cta h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .bottom-cta p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .bottom-cta a {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .bottom-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--brand-dark);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      max-width: 1120px;
+      margin: 0 auto 12px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 40px 20px 72px;
+      }
+      .toc {
+        position: static;
+        max-height: none;
+      }
+      .page-hero h1 { font-size: 32px; }
+      .page-hero p { font-size: 16px; }
+      .content h2 { font-size: 24px; }
+      .header-links a:not(.nav-pill) { display: none; }
+      .header-links a.nav-pill { margin-left: 0; padding: 7px 14px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="icon-128.png" alt="BQ Wizard" />
+      <span>BQ Wizard</span>
+    </a>
+    <nav class="header-links">
+      <a href="index.html#screenshots">Tour</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="mailto:ryan-qs@outlook.com">Contact</a>
+      <a href="index.html#pricing" class="nav-pill">Start free trial &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <a href="index.html" class="back-link">&larr; Back to overview</a>
+  <h1>Every feature, in full</h1>
+  <p>A complete tour of what BQ Wizard does — from the estimating library to PDF take-off, live 3D, cloud sync and beyond.</p>
+</section>
+
+<div class="layout">
+
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul>
+      <li><a href="#library">Estimating library</a></li>
+      <li><a href="#excel">Inside Excel</a></li>
+      <li><a href="#dim-sheet">Dim sheet &amp; workings</a></li>
+      <li><a href="#pdf-takeoff">PDF take-off</a></li>
+      <li><a href="#tool-kits">Custom tool kits</a></li>
+      <li><a href="#three-d">Live 3D view</a></li>
+      <li><a href="#pipeline">Take-off to Excel</a></li>
+      <li><a href="#extras">Extras</a></li>
+      <li><a href="#units">Units</a></li>
+      <li><a href="#licensing">Licensing &amp; sync</a></li>
+      <li><a href="#platform">Platforms</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+
+    <h2 id="library">Estimating library</h2>
+    <p class="section-sub">A 5,806-item NRM/SMM catalogue plus unlimited libraries you build yourself.</p>
+
+    <h3>Built-in NRM/SMM catalogue</h3>
+    <ul>
+      <li><strong>5,806 ready-to-use items</strong> — masonry, concrete, structural, finishes and more, organised into chapters, sections and sub-sections</li>
+      <li><strong>4-level column view</strong> — drill through the hierarchy one column at a time without losing your place</li>
+      <li><strong>Correct NRM/SMM units</strong> attached to every item — m², m³, lin m, nr, item, sum, prov sum, %</li>
+    </ul>
+
+    <h3>Build your own libraries</h3>
+    <ul>
+      <li><strong>Unlimited custom libraries</strong> — a library per trade, per client, per regional price book</li>
+      <li><strong>Create, rename, delete, duplicate</strong> libraries on the fly — built-ins are protected from accidental changes</li>
+      <li><strong>Full node editor</strong> — add, rename, delete, move items; nest to any depth</li>
+      <li><strong>Per-item formatting</strong> — set bold, underline, colour and font size once on the library item; it carries over every time you insert it into Excel</li>
+    </ul>
+
+    <h3>Import &amp; export</h3>
+    <ul>
+      <li><strong>XLSX import</strong> — multi-sheet workbooks bring in a whole set of libraries at once (one sheet per library)</li>
+      <li><strong>Per-sheet strategy</strong> — for each sheet you can create a new library, merge into an existing one, replace it, or skip</li>
+      <li><strong>Unit validation on import</strong> — unknown unit abbreviations are flagged before anything is saved</li>
+      <li><strong>Export all libraries</strong> to a single XLSX to back up or share across a team</li>
+    </ul>
+
+    <h3>Finding items fast</h3>
+    <ul>
+      <li><strong>Case-insensitive search</strong> across the whole active library</li>
+      <li><strong>Match counter</strong> shows <em>current / total</em>; press Enter to cycle through hits</li>
+      <li><strong>Auto-reveal</strong> — the tree expands to the match so you can see its context</li>
+      <li><strong>Pop-out window</strong> — browse the library in a larger floating panel when you need more room</li>
+      <li><strong>Right-click menu</strong> — Add, Edit, Delete, Move Up/Down, Import, Export without hunting through menus</li>
+    </ul>
+
+    <h2 id="excel">Inside Excel</h2>
+    <p class="section-sub">BQ Wizard is an Excel add-in — not a separate tool that exports to Excel. Your spreadsheet stays yours.</p>
+
+    <h3>Getting items into cells</h3>
+    <ul>
+      <li><strong>Double-click to insert</strong> — description lands in the active cell, unit in the cell beside it, selection drops down a row ready for the next item</li>
+      <li><strong>Drag from library to cell</strong> — with a styled preview that shows exactly how it will look</li>
+      <li><strong>Formatting preserved</strong> — bold, underline, font colour and size follow the library item, not the sheet</li>
+    </ul>
+
+    <h3>Right-click BQ Units menu</h3>
+    <ul>
+      <li><strong>Insert common units</strong> directly into any cell with one click — m², m³, lin m, nr, item, sum, prov sum, %</li>
+      <li><strong>Works on ranges</strong> — select a column and fill every cell with the same unit at once</li>
+      <li><strong>Open dim workings</strong> from the same right-click menu — no ribbon hunting</li>
+    </ul>
+
+    <h3>Worksheet templates</h3>
+    <ul>
+      <li><strong>Pre-built sheets</strong> — Standard, Preliminaries, Dimension Sheet, Summary — with correctly formatted headers</li>
+      <li><strong>Section count</strong> — generate a template with as many grouped sections as you need</li>
+      <li><strong>Preview tiles</strong> show what each template looks like before you apply it</li>
+    </ul>
+
+    <h3>Ribbon &amp; task pane</h3>
+    <ul>
+      <li><strong>Home-tab ribbon button</strong> toggles the task pane open and closed</li>
+      <li><strong>Three mode chips</strong> inside the task pane switch between Library, Dim Sheet and PDF Take-off</li>
+      <li><strong>Cell-note banner</strong> — when you select a cell that already has workings, the task pane shows its description and total; click to edit</li>
+    </ul>
+
+    <h2 id="dim-sheet">Dim sheet &amp; workings</h2>
+    <p class="section-sub">A proper dim sheet — times-in, A × B × C, deductions, centres — without leaving the cell.</p>
+
+    <h3>The dim editor</h3>
+    <ul>
+      <li><strong>Six columns</strong> — Times In (T), Dim A, Dim B, Dim C, Total, Notes — exactly like a paper dim sheet</li>
+      <li><strong>Row total = T × A × B × C</strong>, calculated live as you type; empty dimensions treated as 1</li>
+      <li><strong>Expression parser</strong> in every cell — enter 2/5, 3/4, 2/5+4/6, 10-2/3, and combinations with + − × /</li>
+      <li><strong>Auto-format</strong> — plain numbers round to 2 decimal places on blur; expressions stay as you typed them</li>
+      <li><strong>Round-up toggle</strong> — applies ceil() to the item total when the contract requires whole numbers</li>
+    </ul>
+
+    <h3>Deductions, centres &amp; selections</h3>
+    <ul>
+      <li><strong>Negative values</strong> render in red and are used to track deductions cleanly on the same sheet</li>
+      <li><strong>Number at centres calculator</strong> — linear and area modes, adjustable end conditions, unit conversion between m and mm</li>
+      <li><strong>Column selection</strong> — click a header to select the whole column; Shift+click for ranges; Cmd/Ctrl+click to multi-select; Delete clears</li>
+      <li><strong>Live selection sum &amp; count</strong> — the moment you highlight cells you see what they add up to</li>
+      <li><strong>Keyboard flow</strong> — Arrows move, Enter adds a row and drops down, Tab advances, Ctrl/Cmd+S saves</li>
+    </ul>
+
+    <h3>Description autocomplete</h3>
+    <ul>
+      <li><strong>Saved descriptions</strong> — every description you use is remembered for next time</li>
+      <li><strong>Filter as you type</strong> — narrow the list to matches instantly</li>
+      <li><strong>Library picker</strong> (book icon) — browse a longer saved-description list, pick one to fill the field</li>
+      <li><strong>Per-item delete</strong> and "Clear all" so the list stays tidy</li>
+    </ul>
+
+    <h3>Save workflows</h3>
+    <ul>
+      <li><strong>Save to cell</strong> — item total into the selected cell, plus a formatted Excel comment containing every row of the working</li>
+      <li><strong>Queue and insert all</strong> — stack multiple workings, then bulk-write them down the column in one go</li>
+      <li><strong>Target cell shown</strong> at all times so you know exactly where the value will land</li>
+      <li><strong>Overwrite-safe</strong> — re-saving to a cell updates the existing workings, keeping the history attached to that cell</li>
+      <li><strong>Expand to dialog</strong> — pop the dim editor into a full-screen window when a job needs more room</li>
+    </ul>
+
+    <h2 id="pdf-takeoff">PDF plan take-off</h2>
+    <p class="section-sub">Measure straight off the drawing. No paper printouts, no scale rules, no separate take-off software.</p>
+
+    <h3>Opening a drawing</h3>
+    <ul>
+      <li><strong>Drag-and-drop</strong> any PDF into the picker — load several files at once</li>
+      <li><strong>Auto-save back into the source PDF</strong> on systems that support it — your measurements travel with the file</li>
+      <li><strong>Per-filename cache</strong> so re-opening a PDF is instant</li>
+      <li><strong>Page thumbnails</strong> with hi-res hover preview — pick the sheets you need before committing</li>
+      <li><strong>Page subset</strong> — work on a selection of pages from a large drawing pack</li>
+    </ul>
+
+    <h3>Built-in PDF optimiser</h3>
+    <ul>
+      <li><strong>Open PDFs that crash Acrobat or Preview</strong> — large site drawings, dense vector layers, 200-page sets</li>
+      <li><strong>Off-thread rasterisation</strong> — converts heavy vector pages into lightweight tiles that render smoothly</li>
+      <li><strong>Prompted automatically</strong> when a file is detected as large, or runnable on demand</li>
+    </ul>
+
+    <h3>Viewing &amp; navigation</h3>
+    <ul>
+      <li><strong>Zoom &amp; pan</strong> — wheel zoom, fit-to-page, hold Space to pan</li>
+      <li><strong>Rotate</strong> the page in 90° steps (R key), saved per drawing</li>
+      <li><strong>Adaptive tile cache</strong> sized to your machine's RAM — 120 to 300 tiles — for smooth navigation on big plans</li>
+      <li><strong>Low-res first paint</strong>, full resolution on idle — no waiting to start measuring</li>
+      <li><strong>Page names</strong> — rename "Page 1" to "Ground Floor Plan"; auto-rename via OCR of title blocks</li>
+    </ul>
+
+    <h3>Setting the scale</h3>
+    <ul>
+      <li><strong>Two-point calibration</strong> — click two points, type the real-world distance, done</li>
+      <li><strong>Scale presets</strong> — metric (1:20, 1:50, 1:100, 1:200, 1:500) and imperial (1/4"=1', 1/8"=1', 1"=10')</li>
+      <li><strong>Different scale per page</strong> — each drawing sheet keeps its own calibration</li>
+      <li><strong>Scale zones</strong> — mark a region on a page with its own scale for detail call-outs; automatic zone detection on your first point</li>
+      <li><strong>Unit override per session</strong> — jump into mm for a quick detail without touching the project scale</li>
+    </ul>
+
+    <h3>Measurement tools</h3>
+    <ul>
+      <li><strong>Line</strong> — two points, real-world length</li>
+      <li><strong>Area</strong> — closed polygon with area, perimeter and bounding box width × height</li>
+      <li><strong>Polyline</strong> — open path with cumulative edge lengths</li>
+      <li><strong>Count</strong> — point markers for items like doors, WCs, fittings</li>
+      <li><strong>Offset</strong> — generate parallel lines or polygons from a single measurement (footings, cavities, wall skins) — flip side, cut out the original, or convert a line into an area as you offset</li>
+    </ul>
+
+    <h3>Snap &amp; precision</h3>
+    <ul>
+      <li><strong>Snap to vertices</strong> (other measurement endpoints) — on by default</li>
+      <li><strong>Snap to edges</strong> (perpendicular projection onto existing lines)</li>
+      <li><strong>Snap radius in screen pixels</strong> — behaves the same whether you're zoomed in or out</li>
+      <li><strong>Visual snap indicator</strong> highlights the point you'll land on</li>
+      <li><strong>Toolbar toggle</strong> to turn snap off for freehand measurements</li>
+    </ul>
+
+    <h3>Styling each measurement</h3>
+    <ul>
+      <li><strong>Colours, thickness</strong> (1–4 px) and <strong>opacity</strong> per measurement</li>
+      <li><strong>Line end markers</strong> — none, tick, angled tick, dot, arrow — independent for each end</li>
+      <li><strong>Dash styles</strong> — solid, dashed, dotted, dash-dot, dash-dot-dot</li>
+      <li><strong>Area fill patterns</strong> — solid, hatch, crosshatch, horizontal, vertical, dots, brick, blockwork, stone, concrete, timber, insulation, earth, sand, tile</li>
+      <li><strong>Count symbols</strong> — cross-circle, filled circle, X, plus, diamond, triangle, square, open circle, in small, medium or large</li>
+    </ul>
+
+    <h3>Walls, openings &amp; deductions</h3>
+    <ul>
+      <li><strong>Wall height multiplier</strong> — turn a line or polyline into a wall area by entering a height</li>
+      <li><strong>Openings</strong> — add doors and windows to a wall with position, width, height and sill height; they deduct automatically</li>
+      <li><strong>Deductions</strong> linked to a parent measurement — net totals calculated; deduction rows highlighted</li>
+      <li><strong>Split polyline</strong> at a clicked point when you need to break one measurement into two</li>
+    </ul>
+
+    <h3>Measurement list &amp; view sheet</h3>
+    <ul>
+      <li><strong>View sheet</strong> — tabular list of every measurement with Type, Label, Length, Wall Ht, Qty, Gross, Unit, Perimeter, Width, Height and Page columns</li>
+      <li><strong>Sortable &amp; hideable</strong> columns — show only what you care about</li>
+      <li><strong>Visibility toggle</strong> per row — hide measurements on the canvas while keeping them in the list</li>
+      <li><strong>Click-to-edit</strong> label, wall height and colour inline</li>
+      <li><strong>Gross vs net totals</strong> so you can see the effect of deductions at a glance</li>
+      <li><strong>Measurement list</strong> — a staging area for dim workings that can be exported as one Excel block</li>
+    </ul>
+
+    <h3>Other PDF tools</h3>
+    <ul>
+      <li><strong>Text extraction tool</strong> — drag a box over any text on the drawing; PDF text layer first, OCR fallback; the result can be pasted as a table into Excel</li>
+      <li><strong>Crosshair overlay</strong> at the cursor, colour-configurable</li>
+      <li><strong>Per-drawing notes</strong> — a scratch pad that lives with the file</li>
+      <li><strong>Right-click menu on canvas</strong> — Continue group, Add wall height, Add opening, Deduct, Split, Offset, Copy, Paste, Delete, Extract text</li>
+      <li><strong>Keyboard shortcuts</strong> — L (line), A (area), P (polyline), C (count), R (rotate), Space (pan), Ctrl/Cmd+S (save)</li>
+    </ul>
+
+    <h3>Exporting from a drawing</h3>
+    <ul>
+      <li><strong>Marked-up PDF</strong> — vector export with lines, areas (filled and hatched), count symbols, labels and scale indicators</li>
+      <li><strong>Compact PDF</strong> — measurements only, no page raster, for quick sharing</li>
+      <li><strong>Excel export dialog</strong> — choose columns, decimal precision, bold totals, red deductions and border totals; drag cards to reorder; toggle groups on and off before export</li>
+    </ul>
+
+    <h2 id="tool-kits">Custom tool kits</h2>
+    <p class="section-sub">Build the tools you actually use, once, and carry them into every project.</p>
+
+    <h3>Saved measurement tools</h3>
+    <ul>
+      <li><strong>One preset captures everything</strong> — type, colour, thickness, opacity, end markers, dash style, fill pattern, count symbol and size</li>
+      <li><strong>Click a tool in the sidebar</strong> and the next measurement uses its exact style</li>
+      <li><strong>Unlimited tools</strong> — organise them however you work: by trade, by drawing type, by project</li>
+    </ul>
+
+    <h3>Folders &amp; organisation</h3>
+    <ul>
+      <li><strong>Nested folders</strong> — e.g. <em>Elevation Tools → Wall Types → External</em></li>
+      <li><strong>Drag &amp; drop</strong> to reorder tools, reorder folders, or move tools between folders</li>
+      <li><strong>Safe folder delete</strong> — removing a folder orphans its children to the root, never loses them</li>
+      <li><strong>New-tool badge</strong> on freshly imported tools until you've had a chance to use them</li>
+    </ul>
+
+    <h3>Auto tool renamer (OCR)</h3>
+    <ul>
+      <li><strong>Click any label on the PDF</strong> — drag a rectangle over "EXTERNAL WALL — 215mm SOLID BRICK", and a tool is created with that name in seconds</li>
+      <li><strong>Confidence indicator</strong> — shows whether the OCR is a safe match</li>
+      <li><strong>Append or replace</strong> an existing tool name — your call per scan</li>
+    </ul>
+
+    <h3>Share a kit</h3>
+    <ul>
+      <li><strong>Export all tools</strong> (with folder structure) as a single JSON file</li>
+      <li><strong>Import</strong> on another machine or share with the team — the folder tree is rebuilt exactly as you left it</li>
+      <li><strong>Pre-made kits</strong> — bring in ready-to-go sets for groundworks, masonry, elevations or wall types</li>
+    </ul>
+
+    <h2 id="three-d">Live 3D view</h2>
+    <p class="section-sub">Your 2D take-off, rendered in 3D as you measure.</p>
+    <ul>
+      <li><strong>Every wall and opening in real time</strong> — the 3D scene updates the moment you add or edit a measurement</li>
+      <li><strong>Walkable model</strong> — orbit, pan and zoom around your building with a simple grid floor and axis labels</li>
+      <li><strong>Deductions rendered as cutouts</strong> — doors and windows are punched through the 3D walls, not just numbers in a column</li>
+      <li><strong>Catch missed measurements visually</strong> — a gap in the 3D view is a gap in your dim sheet</li>
+      <li><strong>No CAD experience required</strong> — if you can measure, you can see it in 3D</li>
+    </ul>
+
+    <h2 id="pipeline">From take-off straight into the dim sheet</h2>
+    <p class="section-sub">Measurements aren't just totals — they flow into your dim workings with the shape preserved.</p>
+
+    <h3>Fill modes</h3>
+    <p>Click a measurement (or the Dim button next to it) and the dim editor pre-fills in the layout that suits the item:</p>
+    <ul>
+      <li><strong>Single total</strong> — drop the area or length into Dim A</li>
+      <li><strong>Per-segment rows</strong> — one row per edge, with deductions pre-marked using a −1 Times In</li>
+      <li><strong>Width × Height</strong> — width in Dim A, height in Dim B per segment</li>
+      <li><strong>Length × Wall Height</strong> — length in Dim A, wall height in Dim B — ideal for wall areas</li>
+      <li><strong>Notes auto-populated</strong> with segment names or "Ded." for deductions</li>
+    </ul>
+
+    <h3>Source tracking</h3>
+    <ul>
+      <li><strong>Every dim row remembers its origin</strong> — drawing, measurement, label, original value</li>
+      <li><strong>Clickable source dot</strong> — click in the view sheet to highlight that measurement on the drawing</li>
+      <li><strong>Write-back</strong> — edit the wall height in a dim row and the source measurement updates too</li>
+    </ul>
+
+    <h2 id="extras">Extras</h2>
+
+    <h3>Bluebeam import</h3>
+    <ul>
+      <li><strong>Bluebeam Studio Reports CSV</strong> — drop the file in, preview the grid, insert into Excel as a formatted table</li>
+    </ul>
+
+    <h3>Text-to-Excel</h3>
+    <ul>
+      <li><strong>Paste or drag text</strong> (from a PDF or clipboard); the panel auto-detects tabs, commas or spaces</li>
+      <li><strong>Preview the parsed table</strong> before inserting, so nothing lands in Excel unchecked</li>
+    </ul>
+
+    <h3>Quality-of-life</h3>
+    <ul>
+      <li><strong>Sync status indicator</strong> in the task pane header (idle, syncing, synced, failed)</li>
+      <li><strong>Transient status bar</strong> for quick confirmations ("Inserted 5 items", "Imported 312 nodes")</li>
+      <li><strong>Account menu</strong> showing the signed-in email, with one-click sign-out</li>
+    </ul>
+
+    <h2 id="units">Units</h2>
+    <p class="section-sub">29 units built in, and as many custom units as you want to add.</p>
+
+    <h3>Built in</h3>
+    <ul>
+      <li><strong>Measurement</strong> — m², m³, lin m, mm, m, km</li>
+      <li><strong>Quantity</strong> — nr, pr, set, lot</li>
+      <li><strong>Commercial</strong> — item, sum, prov sum, PC sum, %, prelim</li>
+      <li><strong>Time</strong> — hrs, days, weeks, months, hr, day, wk, mth, yr</li>
+      <li><strong>Weight</strong> — kg, tonne, t</li>
+      <li><strong>Area &amp; Volume</strong> — m², m³, ha</li>
+    </ul>
+
+    <h3>Custom</h3>
+    <ul>
+      <li><strong>Add your own units</strong> with abbreviation, description, category and sort order</li>
+      <li><strong>Favourite</strong> the ones you use most — they rise to the top of every picker</li>
+      <li><strong>Quick Unit popup</strong> — search, filter by category, favourite, add and delete from one screen</li>
+      <li><strong>Built-ins protected</strong> from accidental deletion</li>
+    </ul>
+
+    <h2 id="licensing">Licensing &amp; cloud sync</h2>
+
+    <h3>Licensing</h3>
+    <ul>
+      <li><strong>30-day free trial</strong> — full app, no credit card</li>
+      <li><strong>Monthly £9.99 or annual £109.89</strong> — cancel any time</li>
+      <li><strong>One licence covers two devices</strong> — activate on desktop and laptop with the same key</li>
+      <li><strong>Email + key activation</strong> — device-bound so the 2-device limit is enforced fairly</li>
+      <li><strong>Clear status</strong> — days-left counter and expiry date always visible</li>
+    </ul>
+
+    <h3>Cloud sync</h3>
+    <ul>
+      <li><strong>What syncs</strong> — libraries, nodes, dim workings, PDF take-off measurements, tools and folders</li>
+      <li><strong>Offline-first</strong> — all writes land locally immediately; the cloud is updated in the background</li>
+      <li><strong>Automatic</strong> — a 5-second debounce batches your edits so the cloud isn't hammered on every keystroke</li>
+      <li><strong>Multi-device</strong> — open the add-in on your other machine and everything is already there</li>
+      <li><strong>Export your data any time</strong> — XLSX for libraries, take-off export to a worksheet, JSON for tool kits. No lock-in.</li>
+    </ul>
+
+    <h2 id="platform">Platforms</h2>
+    <ul>
+      <li><strong>Excel on Windows &amp; Mac</strong> — the main supported platforms</li>
+      <li><strong>Excel Online &amp; iPad</strong> — Office Add-in architecture means the same file opens everywhere Office runs</li>
+      <li><strong>Your workbook stays yours</strong> — BQ Wizard runs inside the Excel task pane; saved files are standard .xlsx</li>
+    </ul>
+
+    <div class="bottom-cta">
+      <h3>Ready to try it?</h3>
+      <p>30-day free trial. No credit card. Every feature above, from day one.</p>
+      <a href="mailto:ryan-qs@outlook.com">Start 30-day free trial</a>
+    </div>
+
+  </main>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://bq-wizard-addin.pages.dev/privacy.html">Privacy Policy</a>
+    <a href="https://bq-wizard-addin.pages.dev/terms.html">Terms of Service</a>
+    <a href="https://bq-wizard-addin.pages.dev/support.html">Support</a>
+    <a href="mailto:ryan-qs@outlook.com">Contact</a>
+  </div>
+  <div>&copy; 2026 BQ Wizard. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
