@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support &mdash; BQ Wizard</title>
+  <meta name="description" content="Get help with the BQ Wizard Excel add-in. Contact email, response times, and common questions on activation, installation and data." />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --brand: #1e293b;
+      --brand-dark: #0f172a;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      color: #fff;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 22%;
+      clip-path: inset(2px round 20%);
+    }
+
+    .logo span {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .header-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      transition: color 0.15s;
+    }
+
+    .header-links a:hover { color: #fff; }
+
+    .header-links a.nav-pill {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .header-links a.nav-pill:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
+    }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: #fff;
+      padding: 72px 20px 56px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .page-hero p {
+      opacity: 0.85;
+      font-size: 16px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .contact-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      color: var(--brand);
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .contact-card a.email-cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.35);
+    }
+
+    .contact-card a.email-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .response {
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    main h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin: 40px 0 8px;
+      color: var(--brand);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+    }
+
+    .faq-item:last-child { border-bottom: 0; }
+
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--brand);
+    }
+
+    .faq-item p, .faq-item li {
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .faq-item p { margin-bottom: 8px; }
+
+    .faq-item ul {
+      padding-left: 22px;
+      margin-top: 4px;
+    }
+
+    .faq-item a {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    .footer-links { margin-bottom: 10px; }
+
+    @media (max-width: 600px) {
+      .header-links { display: none; }
+      .logo span { font-size: 17px; }
+      .page-hero { padding: 56px 20px 44px; }
+      .page-hero h1 { font-size: 30px; }
+      main { padding: 48px 20px 72px; }
+      .contact-card { padding: 26px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="icon-128.png" alt="BQ Wizard" />
+      <span>BQ Wizard</span>
+    </a>
+    <nav class="header-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:ryan-qs@outlook.com" class="nav-pill">Contact &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>BQ Wizard Support</h1>
+  <p>Need a hand with installation, activation, or a feature inside the add-in? Get in touch &mdash; a real person replies.</p>
+</section>
+
+<main>
+  <div class="contact-card">
+    <h2>Email support</h2>
+    <p>Send us the details of your question or issue. Please include your licence email and a short description of what you were doing.</p>
+    <a class="email-cta" href="mailto:ryan-qs@outlook.com?subject=BQ Wizard Support">Email ryan-qs@outlook.com</a>
+    <div class="response">We aim to respond within <strong>48 hours</strong> on UK business days (Monday&ndash;Friday).</div>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+
+  <div class="faq-item">
+    <h3>How do I install BQ Wizard?</h3>
+    <p>BQ Wizard is a Microsoft Excel add-in. After purchase, follow these steps:</p>
+    <ul>
+      <li>Open Excel (Windows or Mac).</li>
+      <li>Go to <strong>Insert</strong> &rarr; <strong>Get Add-ins</strong>, then search for &ldquo;BQ Wizard&rdquo; in the Office Store, or install via the AppSource listing.</li>
+      <li>Open the BQ Wizard task pane from the <strong>Home</strong> tab in the Excel ribbon.</li>
+      <li>Enter your licence email and key to activate.</li>
+    </ul>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I activate my licence?</h3>
+    <p>When BQ Wizard opens for the first time, you&rsquo;ll see an activation screen. Enter the email you used at purchase and the licence key you received by email. Activation is instant and requires an internet connection on first run.</p>
+    <p>If activation fails, email us with the exact error message and the email address on your account.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Can I move my licence to a new computer?</h3>
+    <p>Yes. Each BQ Wizard licence can be used on up to two devices. To move a licence to a third device, email <a href="mailto:ryan-qs@outlook.com">ryan-qs@outlook.com</a> and we will release a device slot for you, usually within a few hours.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Where is my data stored?</h3>
+    <p>By default, BQ Wizard stores all your libraries, dimension workings, take-off data and tool kits in your browser&rsquo;s local storage on the machine you are using. Nothing leaves your computer unless cloud sync is enabled.</p>
+    <p>If you turn on cloud sync, your working data is encrypted and synced to your BQ Wizard account so it can follow you between devices. Full details are in our <a href="privacy.html">Privacy Policy</a>.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Does BQ Wizard work on Excel for Mac / Excel on the web / iPad?</h3>
+    <p>BQ Wizard is built on the Office Add-in platform, so it runs inside Excel on Windows, Mac, the web and iPad. Some features (for example the PDF take-off tool and 3D view) work best on Windows or Mac desktop where there is more screen space and processing power.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>I&rsquo;ve found a bug or have a feature request.</h3>
+    <p>We genuinely want to hear about both. Email <a href="mailto:ryan-qs@outlook.com?subject=BQ Wizard feedback">ryan-qs@outlook.com</a> with as much detail as you can &mdash; screenshots, the file you were working on, and the steps that led to the problem. Feature requests from real users drive our roadmap.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I cancel my subscription?</h3>
+    <p>If you purchased through Microsoft AppSource, cancel from your Microsoft account&rsquo;s subscription page. If you purchased directly from bqwizard.com, email us and we will cancel and confirm by reply.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I request a refund?</h3>
+    <p>Direct purchases from bqwizard.com can be refunded within 14 days under UK consumer law &mdash; see our <a href="terms.html">Terms of Service</a>. Microsoft AppSource purchases are refunded by Microsoft under the Microsoft Standard Contract.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="support.html">Support</a>
+  </div>
+  <p>&copy; 2026 BQ Wizard. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

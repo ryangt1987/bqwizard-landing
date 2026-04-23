@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service &mdash; BQ Wizard</title>
+  <meta name="description" content="Terms of service for the BQ Wizard Excel add-in. Licence grant, device limits, refund policy, and governing law." />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --brand: #1e293b;
+      --brand-dark: #0f172a;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      color: #fff;
+      padding: 0 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 22%;
+      clip-path: inset(2px round 20%);
+    }
+
+    .logo span {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .header-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      transition: color 0.15s;
+    }
+
+    .header-links a:hover { color: #fff; }
+
+    .header-links a.nav-pill {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .header-links a.nav-pill:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
+    }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: #fff;
+      padding: 72px 20px 56px;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .page-hero p {
+      opacity: 0.8;
+      font-size: 15px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    main h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin: 40px 0 14px;
+      color: var(--brand);
+    }
+
+    main h2:first-of-type { margin-top: 0; }
+
+    main p, main li {
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    main p { margin-bottom: 14px; }
+
+    main ul {
+      padding-left: 22px;
+      margin-bottom: 18px;
+    }
+
+    main li { margin-bottom: 6px; }
+
+    main a {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .muted { color: var(--text-muted); font-size: 14px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    .footer-links { margin-bottom: 10px; }
+
+    @media (max-width: 600px) {
+      .header-links { display: none; }
+      .logo span { font-size: 17px; }
+      .page-hero { padding: 56px 20px 44px; }
+      .page-hero h1 { font-size: 30px; }
+      main { padding: 48px 20px 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="icon-128.png" alt="BQ Wizard" />
+      <span>BQ Wizard</span>
+    </a>
+    <nav class="header-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:ryan-qs@outlook.com" class="nav-pill">Contact &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>Terms of Service</h1>
+  <p>Licence terms for the BQ Wizard Excel add-in</p>
+</section>
+
+<main>
+  <p class="muted">Effective date: 23 April 2026</p>
+
+  <p>These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the <strong>BQ Wizard</strong> add-in for Microsoft Excel and the related licence-activation and cloud-sync services (together, the &ldquo;App&rdquo;). By installing, activating, or using the App, you agree to these Terms.</p>
+  <p>If you purchased the App through Microsoft AppSource, the Microsoft <a href="https://go.microsoft.com/fwlink/?linkid=2169779" target="_blank" rel="noopener">Standard Contract for Microsoft Marketplace</a> also applies and, where it conflicts with these Terms, the Microsoft Standard Contract prevails for that purchase.</p>
+
+  <h2>1. Licence grant</h2>
+  <p>Subject to these Terms and payment of the applicable fee, BQ Wizard grants you a non-exclusive, non-transferable, revocable licence to install and use the App on the number of devices permitted by your subscription, for your own internal business or professional use.</p>
+  <p>A trial licence grants the same rights for a limited evaluation period after which the App will require a paid subscription to continue.</p>
+
+  <h2>2. Device limit</h2>
+  <p>Each BQ Wizard licence may be activated on up to <strong>two devices</strong> belonging to the licensed user. Sharing a licence across multiple users, or across more devices than permitted, is not allowed and may result in the licence being suspended.</p>
+  <p>You can transfer a licence to a new device from the BQ Wizard account page, or by emailing <a href="mailto:ryan-qs@outlook.com">ryan-qs@outlook.com</a>.</p>
+
+  <h2>3. Subscription and payment</h2>
+  <ul>
+    <li>Monthly and annual subscriptions are charged in advance.</li>
+    <li>Subscriptions renew automatically at the end of each billing period unless cancelled.</li>
+    <li>You can cancel at any time from the same place you purchased the licence (Microsoft AppSource account, or the BQ Wizard website).</li>
+    <li>Prices shown on the BQ Wizard website include VAT where applicable.</li>
+  </ul>
+
+  <h2>4. Refund policy</h2>
+  <p>Under UK consumer law, you may cancel a direct subscription purchase from bqwizard.com within <strong>14 days</strong> of purchase for a full refund, provided the App has not been used substantially during that period. Email <a href="mailto:ryan-qs@outlook.com">ryan-qs@outlook.com</a> within 14 days to request a refund.</p>
+  <p>Refunds for purchases made through Microsoft AppSource are handled by Microsoft under the Microsoft Standard Contract.</p>
+
+  <h2>5. Acceptable use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Reverse engineer, decompile, or attempt to extract the source code of the App, except to the extent that such restriction is prohibited by law.</li>
+    <li>Rent, lease, sell, resell, or redistribute access to the App.</li>
+    <li>Use the App to process content that is unlawful, infringes intellectual-property rights, or contains malware.</li>
+    <li>Circumvent the device-limit or licence-verification mechanisms.</li>
+  </ul>
+
+  <h2>6. Your content</h2>
+  <p>You retain all rights in the spreadsheets, PDF drawings, and take-off data you work with in the App. BQ Wizard does not claim any ownership over your content.</p>
+  <p>If you enable cloud sync, you grant BQ Wizard a limited licence to store and transmit your synced content solely in order to provide the sync service. This licence ends when you delete the content or your account.</p>
+
+  <h2>7. Updates and availability</h2>
+  <p>BQ Wizard is updated regularly to add features, fix bugs, and maintain compatibility with Microsoft Excel. Updates may be delivered automatically.</p>
+  <p>The App is provided as a service and BQ Wizard may occasionally perform maintenance that temporarily affects availability of the activation or sync services. We will make reasonable efforts to minimise disruption.</p>
+
+  <h2>8. Warranty disclaimer</h2>
+  <p>The App is provided <strong>&ldquo;as is&rdquo;</strong> and <strong>&ldquo;as available&rdquo;</strong>. To the fullest extent permitted by law, BQ Wizard disclaims all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+  <p>BQ Wizard produces draft bills of quantities and take-off data from the inputs you provide. You remain responsible for checking the accuracy of any figures before they are used for pricing, tender, or contract purposes.</p>
+
+  <h2>9. Limitation of liability</h2>
+  <p>To the fullest extent permitted by law, BQ Wizard&rsquo;s total liability arising out of or in connection with these Terms or the App is limited to the amount you paid for the App in the twelve months preceding the event giving rise to the claim.</p>
+  <p>BQ Wizard will not be liable for any indirect, incidental, or consequential loss, including loss of profits, loss of business opportunity, or loss of data, except where such liability cannot be excluded under applicable law. Nothing in these Terms limits liability for death, personal injury caused by negligence, fraud, or any other liability that cannot be excluded by law.</p>
+
+  <h2>10. Termination</h2>
+  <p>You may stop using the App at any time. BQ Wizard may suspend or terminate your licence if you materially breach these Terms, with notice where practical. On termination, your right to use the App ends, but these Terms will continue to apply to any prior use.</p>
+
+  <h2>11. Governing law</h2>
+  <p>These Terms are governed by the laws of <strong>England and Wales</strong>. The courts of England and Wales have exclusive jurisdiction over any dispute, except that consumers may bring proceedings in the courts of their country of residence where required by law.</p>
+
+  <h2>12. Changes to these Terms</h2>
+  <p>BQ Wizard may update these Terms from time to time. The updated version will be posted on this page with a new effective date. Continued use of the App after an update means you accept the new Terms.</p>
+
+  <h2>13. Contact</h2>
+  <p>Questions about these Terms can be sent to <a href="mailto:ryan-qs@outlook.com">ryan-qs@outlook.com</a>.</p>
+  <p class="muted">BQ Wizard is operated as a sole trader based in the United Kingdom.</p>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="support.html">Support</a>
+  </div>
+  <p>&copy; 2026 BQ Wizard. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
